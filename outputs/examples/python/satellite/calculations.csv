@@ -1,0 +1,41 @@
+quantity,formula,value,unit
+wavelength,wavelength_nm * 1e-9,1.5500000000000002e-06,m
+wavenumber,2*pi/lambda,4053667.9401158616,rad/m
+pulse separation,1/clock_hz,1e-09,s
+interferometer free-space path difference,c/clock_hz; divide by group index in material,0.29979245800000004,m
+slant range,sqrt(Rs^2-Rg^2*cos(e)^2)-Rg*sin(e),683068.6201417577,m
+weighted turbulence integral,"trapz(h, Cn2(h)*(h-h_ground)^(5/6))",5.394390487620546e-10,m^(7/6)
+Rytov variance,2.25*k^(7/6)*sin(e)^(-11/6)*weighted_integral,0.11728035184507027,-
+slant Cn2 integral,"trapz(h,Cn2)/sin(e)",3.1613363330802426e-12,m^(1/3)
+atmospheric path approximation,(h_top-h_ground)/sin(e),28284.2712474619,m
+Fried coherence diameter,(0.423*k^2*integral(Cn2 ds))^(-3/5),0.15662300556574554,m
+effective divergence half-angle,"max(input_urad*1e-6, lambda/(pi*w0))",9.999999999999999e-06,rad
+beam radius at receiver,sqrt(w0^2 + (theta*L)^2),6.831418153080404,m
+centered Gaussian aperture capture,1-exp(-2*a^2/w^2),0.010656727118623161,-
+per-axis spot jitter,L * pointing_urad * 1e-6,0.6830686201417576,m
+aperture loss,power loss in dB; extinction scales with path/airmass,19.723761548374025,dB
+extinction loss,power loss in dB; extinction scales with path/airmass,1.414213562373095,dB
+optics loss,power loss in dB; extinction scales with path/airmass,3.0,dB
+temporal gate capture,erf(gate_seconds/(2*sqrt(2)*sigma_seconds)),0.9999994266968563,-
+channel length,selected physical propagation length,683068.6201417577,m
+nominal channel loss,sum(named losses); excludes random pointing/cloud/scintillation,24.13797511074712,dB
+nominal channel transmission,10^(-loss_dB/10),0.003856581280772394,-
+gamma-gamma alpha,1/expm1(0.49*s/(1+1.11*s^(6/5))^(7/6)),18.638969341914628,-
+gamma-gamma beta,1/expm1(0.51*s/(1+0.69*s^(6/5))^(5/6)),16.95480971880839,-
+gamma-gamma scintillation index,1/alpha+1/beta+1/(alpha*beta),0.11579570402431173,-
+source photon energy,h*c/lambda,1.2815779723541474e-19,J
+mean emitted optical power,mu*h*c/lambda*clock,2.5631559447082948e-11,W
+noise mean per port/gate,(dark_hz+background_hz)*gate_ns*1e-9,3.3e-07,counts/gate
+noise click probability per port,1-exp(-noise_mean),3.29999945550006e-07,-
+mean residual phase visibility,visibility*exp(-phase_sigma_rad^2/2),0.9887632731153351,-
+Eve single-pulse discrimination error,(1-sqrt(1-exp(-4*mu*eve_eta)))/2,0.12896393844978543,-
+Eve-only expected differential error,2*f*e*(1-f*e); zero for none or beam-split,0.0,-
+mean single click probability,mean((p0*(1-p1)+p1*(1-p0))*live),0.00027215340658401035,-
+expected error probability,mean(wrong_port_only_probability*live),1.858002159283039e-06,-
+model QBER,expected_error / expected_single,0.0068270398765319035,-
+model sifted rate,N/(N+1)*clock*expected_single,272152.0458237812,bits/s
+observed QBER,count(wrong accepted detector)/count(accepted singles),0.0,-
+observed sifted rate,accepted_singles / ((N+1)/clock),229998.85000574996,bits/s
+toy entropy cost,h2(model_QBER),0.058932941858861235,-
+illustrative retained fraction,"max(0,1-(1+fEC)*h2(Q)); zero above classroom threshold",0.8727048455848597,-
+illustrative postprocessing rate,model_sifted_rate*(1-test_fraction)*toy_fraction,213757.568213622,bits/s

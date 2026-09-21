@@ -1,0 +1,83 @@
+DPS-QKD | Satellite-Ground | Eve: none
+wavelength = 1.55e-06 m ; wavelength_nm * 1e-9
+wavenumber = 4053667.94 rad/m ; 2*pi/lambda
+pulse separation = 1e-09 s ; 1/clock_hz
+interferometer free-space path difference = 0.299792458 m ; c/clock; divide by group index in material
+slant range = 683068.6201 m ; sqrt(Rs^2-Rg^2*cos(e)^2)-Rg*sin(e)
+weighted turbulence integral = 5.394390488e-10 m^(7/6) ; trapz(h,Cn2(h)*(h-h_ground)^(5/6))
+Rytov variance = 0.1172803518 - ; 2.25*k^(7/6)*sin(e)^(-11/6)*weighted_integral
+slant Cn2 integral = 3.161336333e-12 m^(1/3) ; trapz(h,Cn2)/sin(e)
+atmospheric path approximation = 28284.27125 m ; (h_top-h_ground)/sin(e)
+Fried coherence diameter = 0.1566230056 m ; (0.423*k^2*integral(Cn2 ds))^(-3/5)
+effective divergence half-angle = 1e-05 rad ; max(input_urad*1e-6,lambda/(pi*w0))
+beam radius at receiver = 6.831418153 m ; sqrt(w0^2+(theta*L)^2)
+centered Gaussian aperture capture = 0.01065672712 - ; 1-exp(-2*a^2/w^2)
+per-axis spot jitter = 0.6830686201 m ; L*pointing_urad*1e-6
+aperture loss = 19.72376155 dB ; power loss dB; extinction scales with path/airmass
+extinction loss = 1.414213562 dB ; power loss dB; extinction scales with path/airmass
+optics loss = 3 dB ; power loss dB; extinction scales with path/airmass
+temporal gate capture = 0.9999994267 - ; erf(gate_s/(2*sqrt(2)*sigma_s))
+channel length = 683068.6201 m ; physical propagation length
+nominal channel loss = 24.13797511 dB ; sum(named losses), excluding random pointing/cloud/fading
+nominal channel transmission = 0.003856581281 - ; 10^(-loss_dB/10)
+gamma-gamma alpha = 18.63896934 - ; 1/expm1(0.49*s/(1+1.11*s^(6/5))^(7/6))
+gamma-gamma beta = 16.95480972 - ; 1/expm1(0.51*s/(1+0.69*s^(6/5))^(5/6))
+gamma-gamma scintillation index = 0.115795704 - ; 1/alpha+1/beta+1/(alpha*beta)
+source photon energy = 1.281577972e-19 J ; h*c/lambda
+mean emitted optical power = 2.563155945e-11 W ; mu*h*c/lambda*clock
+noise mean per port/gate = 3.3e-07 counts/gate ; (dark_hz+background_hz)*gate_ns*1e-9
+noise click probability per port = 3.299999456e-07 - ; 1-exp(-noise_mean)
+mean residual phase visibility = 0.9887632731 - ; visibility*exp(-phase_sigma_rad^2/2)
+Eve single-pulse discrimination error = 0.1289639384 - ; (1-sqrt(1-exp(-4*mu*eve_eta)))/2
+Eve-only expected differential error = 0 - ; 2*f*e*(1-f*e); zero for none/beam-split
+mean single click probability = 0.0002699914255 - ; mean((p0*(1-p1)+p1*(1-p0))*live)
+expected error probability = 1.846981277e-06 - ; mean(wrong_port_only_probability*live)
+model QBER = 0.006840888643 - ; expected_error / expected_single
+model sifted rate = 269990.0756 bits/s ; N/(N+1)*clock*expected_single
+observed QBER = 0 - ; wrong accepted bits / accepted singles
+observed sifted rate = 259998.7 bits/s ; accepted_singles/((N+1)/clock)
+toy entropy cost = 0.05903241988 - ; h2(model_QBER)
+illustrative retained fraction = 0.8724899731 - ; max(0,1-(1+fEC)*h2(Q)); zero above threshold
+illustrative postprocessing rate = 212007.2704 bits/s ; model_sifted_rate*(1-test_fraction)*toy_fraction
+RESULTS: engineering estimates, not certified secret keys
+channel: Satellite-Ground
+fading: lognormal
+length_km: 683.0686201
+nominal_loss_db: 24.13797511
+rytov_variance: 0.1172803518
+fried_r0_m: 0.1566230056
+fading_blocks: 201
+block_duration_s: 1e-06
+duration_s: 0.000200001
+fading_mean: 0.9415491685
+fading_si_sample: 0.1250220821
+fading_si_theory: 0.1244346228
+mean_channel_eta: 0.00347816212
+outage_fraction: 0
+transmission_clip_fraction: 0
+click_probability_before_holdoff: 0.0002699919724
+expected_single_probability: 0.0002699914255
+detected_sifted_bits: 52
+errors: 0
+double_clicks: 0
+qber_model: 0.006840888643
+qber_observed: 0
+qber_wilson_low: 0
+qber_wilson_high: 0.06879223612
+sifted_rate_model_bps: 269990.0756
+sifted_rate_observed_bps: 259998.7
+test_bits: 5
+test_qber: 0
+test_wilson_low: 0
+test_wilson_high: 0.4344824648
+unrevealed_bits: 47
+classroom_status: INSUFFICIENT TEST DATA
+eve_mode: none
+eve_single_phase_error: 0.1289639384
+eve_signal_qber_expected: 0
+eve_estimated_sifted_bits: 0
+eve_estimate_agreement: NaN
+toy_retained_fraction: 0.8724899731
+illustrative_postprocessing_bps: 212007.2704
+certified_secret_key_bps: NOT COMPUTED: no DPS security proof / finite-key analysis
+Model note: Point-receiver scintillation: aperture averaging, turbulence beam wander and adaptive optics are not modeled.

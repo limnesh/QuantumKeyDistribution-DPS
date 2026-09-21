@@ -1,0 +1,5 @@
+.project_backups/
+__pycache__/
+.ipynb_checkpoints/
+outputs/runtime/
+*.asv
