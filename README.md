@@ -1,50 +1,103 @@
-# DPS-QKD FSO — GNU Octave project
+# DPS Quantum Key Distribution over Free-Space Optical (FSO) Channels
 
-A start screen and four parameter-driven dashboards matching the final
-`DPS_QKD_FSO_Final.ipynb` notebook. This project requires **GNU Octave with a
-desktop graphics toolkit**. Run from an extracted directory; no Python package
-is required when using the Octave project.
+**Python and GNU Octave simulation project** studying Differential Phase Shift Quantum Key Distribution (DPS-QKD) over terrestrial and satellite free-space optical links, with QBER analysis, classical post-processing, atmospheric turbulence, machine-learning-assisted optimization, trusted satellite relays, and a fictional banking application.
 
-## Start
+## Project information
 
-1. Open `START_PROJECT.m` in GNU Octave and press **F5** (or enter
-   `run('START_PROJECT.m')` from this directory).
-2. Select one of the four scenarios. Change parameter groups on the left,
-   press **Run simulation**, and choose a plot page at the top.
-3. **Export results** saves a `.mat` snapshot, CSV data, summary, and dashboard
-   image under `results/scenarioN_YYYYMMDD_HHMMSS/`.
+| Information | Detail |
+| --- | --- |
+| Institution | Indian Institute of Technology Delhi (IIT Delhi), Bharti School of Telecommunication Technology and Management |
+| Programme | Post Graduate Diploma in Advanced Communication Engineering with Quantum and AI Integration (PGDACEQAI), Batch 01 |
+| Prepared by | **Limnesh Augustine** |
+| Supervisor | **Prof. Neel Kanth Kundu** |
+| Submission date | **9 October 2026** |
+| Software | **Jupyter Notebook (Python)** and **GNU Octave** |
+| Document status | **Institution Review** |
+| Project webpage | [Open the GitHub Pages project site](https://limnesh.github.io/QuantumKeyDistribution-DPS/) |
+| Project report | [Read the formatted HTML report](https://limnesh.github.io/QuantumKeyDistribution-DPS/DPS_QKD_FSO_Project_Report-v1.0.html) |
+| Source repository | [QuantumKeyDistribution-DPS on GitHub](https://github.com/limnesh/QuantumKeyDistribution-DPS) |
 
-In command-line Octave, `run('SELF_CHECK.m')` checks reference outputs, and
-`run('RUN_ALL.m')` computes all four scenarios plus the ML module. The ML
-training/design scan is also available as the last page of scenario 1 and can
-take longer than the other pages.
+## Project overview
 
-The ML study holds the link distance at 20 km and uses the notebook's fixed
-design-search settings, even if the separate ground-baseline page has a
-different edited distance.
+This academic project develops a reproducible numerical framework for **Differential Phase Shift Quantum Key Distribution (DPS-QKD)** over **Free-Space Optical (FSO)** channels.
 
-| Start screen | Notebook-matched content | Dashboard pages |
-|---|---|---|
-| 01 Ground FSO | Fixed link, log-normal fading, correlated outage, five-feature ML | Baseline; distance and mu; fading and outage; ML surrogate |
-| 02 Single LEO | Orbital pass, atmospheric shell, elevation cutoff, click and rate proxy | Geometry; rate and QBER |
-| 03 Trusted relay | Two separated stations and a key-holding satellite | Two hop geometry; contact and budgets |
-| 04 Network | Three satellites, inter-satellite visibility, route bottlenecks | Link windows; route budgets |
+The report begins with the long-term confidentiality problem created by future quantum computers and introduces QKD as a quantum-safe key-distribution approach. **BB84, BBM92 and DPS** are presented as teaching protocols before the study concentrates on DPS-QKD for the main numerical analysis.
 
-`data/ml_train_features.csv` and `data/ml_test_features.csv` contain the exact
-520/180 feature samples generated with the final notebook's NumPy seed 3602.
-Octave refits the kernel from its own physics outputs; floating-point solver
-differences can lead to small differences in ML metrics. The 2,400 point
-correlated-fade example uses Octave's seeded normal generator; it is
-reproducible in Octave but need not match NumPy's exact sample path or outage
-fraction. All four scenarios accept edited device and geometry parameters.
+The project covers:
 
-## Interpretation
+- **QKD fundamentals** and the roles of the quantum and authenticated classical channels.
+- **BB84, BBM92 and DPS-QKD** protocol demonstrations.
+- **QBER estimation** and error sources.
+- **Information reconciliation** using syndrome/LDPC concepts.
+- **Key verification** and **Toeplitz privacy amplification**.
+- A detailed **DPS transmitter, interferometer and detector model**.
+- Weak coherent pulses and **Poisson photon-number statistics**.
+- A **20 km terrestrial FSO link** with optical link-budget analysis.
+- **Log-normal atmospheric turbulence** and detection-weighted QBER.
+- **Gauss-Hermite quadrature** and Monte Carlo validation.
+- **Machine-learning-assisted parameter optimization** using an RBF kernel-ridge surrogate with physics-model rechecking.
+- A **LEO satellite-to-ground DPS-QKD downlink**.
+- A **two-ground-station trusted satellite relay**.
+- A **multi-satellite trusted QKD network**.
+- A fictional **Bahrain Sample Bank (BSB)** use case for studying QKD-assisted key delivery, encrypted replication, key management and phased quantum-safe adoption.
+- **GNU Octave dashboards** for the numerical scenarios.
 
-The physical two-detector click/QBER model and compact modeled QBER are
-separate. The asymptotic modeled bit-rate is an **illustrative engineering
-proxy**, not certified secret key material. The trusted relay assumes that
-the satellite knows the key; integrated hop budgets ignore scheduling,
-finite-key penalties, buffer limits and end-to-end untrusted security. A 5%
-QBER design constraint is only the notebook's optimization condition.
+> **Research scope:** This is an educational engineering simulation. The modeled secret-key-rate values are comparative engineering proxies under the assumptions described in the report; they are not a complete composable finite-key security proof or a certified production QKD implementation.
 
-See `MODEL_MAPPING.md` for the precise formulas and notebook defaults.
+## Main research questions
+
+1. How do **distance, receiver aperture, mean photon number, interferometer visibility, detector background and atmospheric fading** affect DPS-QKD QBER and modeled secret-key-rate performance?
+2. Does averaging a fluctuating optical channel before applying nonlinear detector/QBER/rate equations produce a different result from evaluating each fading state individually and then pooling the statistics?
+3. Can a validated **machine-learning surrogate** identify useful DPS-QKD operating points while satisfying a QBER constraint, and do those points remain valid when rechecked using the original physics model?
+
+## Simulation progression
+
+| Stage | Study |
+| --- | --- |
+| 1 | DPS-QKD fundamentals, detector model and terrestrial FSO link |
+| 2 | Atmospheric turbulence, fading statistics and outage behaviour |
+| 3 | Machine-learning-assisted parameter search and physics revalidation |
+| 4 | LEO satellite, trusted relay and multi-satellite network extensions |
+| Application | Fictional Bahrain Sample Bank quantum-safe architecture case study |
+
+## Project report
+
+The complete formatted report includes the theory, worked calculations, equations, figures, simulation results, limitations, banking case study and references.
+
+### 🌐 [Open the full HTML project report](https://limnesh.github.io/QuantumKeyDistribution-DPS/DPS_QKD_FSO_Project_Report-v1.0.html)
+
+The GitHub Pages landing page is available here:
+
+### 🔗 [https://limnesh.github.io/QuantumKeyDistribution-DPS/](https://limnesh.github.io/QuantumKeyDistribution-DPS/)
+
+## Running the project
+
+The repository contains the Python/Jupyter and GNU Octave implementations used for the project.
+
+### Jupyter Notebook / Python
+
+Open the relevant `.ipynb` notebook in Jupyter Notebook or JupyterLab and run the cells from top to bottom. The simulations expose the intermediate physical quantities as well as the final QBER and modeled-rate results so that the calculations remain reproducible and inspectable.
+
+### GNU Octave
+
+Open the project launcher or the relevant scenario `.m` file in the GNU Octave graphical application and execute it. The GNU Octave implementation provides GUI dashboards for the terrestrial, satellite, trusted-relay and multi-satellite scenarios.
+
+> Keep the repository folder structure intact because notebooks and Octave launchers may depend on supporting files in their associated folders.
+
+## Important interpretation notes
+
+- QKD is used to **establish or supply key material**; the application data itself remains conventional encrypted traffic.
+- QBER is an **observable error statistic** and does not by itself prove the presence of an eavesdropper.
+- The project distinguishes the **physical click-conditioned detector model** from the separate **compact modeled QBER/SKR proxy**.
+- Turbulence results use **detection-weighted pooling** because weak and strong fading states do not contribute equal numbers of detections.
+- The ML model is a **surrogate of the physics simulation**, not a replacement for the physical model or a QKD security proof.
+- Satellite trusted-relay scenarios require trust in the satellite or relay node and secure storage of hop-key material.
+- The Bahrain Sample Bank case study is **fictional** and is intended only as an engineering application example.
+
+## About the author
+
+**Limnesh Augustine** is an Electronics and Communication Engineer and IT Project Manager at **GBM Bahrain**. He is also a licensed private pilot, an international 3D anamorphic artist and a Guinness World Record holder. His interests connect engineering, aviation, art and technology. He is pursuing studies at **IIT Delhi**, with a focus on advanced communications, quantum communication and free-space optical links.
+
+---
+
+*Academic project prepared by Limnesh Augustine for institutional review, October 2026.*
