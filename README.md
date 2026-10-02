@@ -13,9 +13,7 @@
 | Submission date | **9 October 2026** |
 | Software | **Jupyter Notebook (Python)** and **GNU Octave** |
 | Document status | **Institution Review** |
-| Project webpage | [Open the GitHub Pages project site](https://limnesh.github.io/QuantumKeyDistribution-DPS/) |
 | Project report | [Read the formatted HTML report](https://limnesh.github.io/QuantumKeyDistribution-DPS/DPS_QKD_FSO_Project_Report-v1.0.html) |
-| Source repository | [QuantumKeyDistribution-DPS on GitHub](https://github.com/limnesh/QuantumKeyDistribution-DPS) |
 
 ## Project overview
 
