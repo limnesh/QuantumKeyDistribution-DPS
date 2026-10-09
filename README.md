@@ -9,7 +9,7 @@ A numerical and educational study of **Differential Phase Shift Quantum Key Dist
 | Information | Detail |
 | --- | --- |
 | Institution | Indian Institute of Technology Delhi (IIT Delhi), Bharti School of Telecommunication Technology and Management |
-| Programme | Post Graduate Diploma in Advanced Communication Engineering with Quantum and AI Integration (PGDACEQAI), Batch 01 |
+| Programme | PG Diploma in Advanced Communication Engineering with Quantum and AI Integration (PGDACEQAI) |
 | Prepared by | **Limnesh Augustine** |
 | Supervisor | **Dr. Neel Kanth Kundu** |
 | Submission date | **9 October 2026** |
