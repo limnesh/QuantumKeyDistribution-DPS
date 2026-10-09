@@ -84,7 +84,6 @@ Open the latest DPS-QKD `.ipynb` notebook in Jupyter Notebook or JupyterLab and 
 Open GNU Octave in the extracted Octave project directory, preserving its folder structure, and run:
 
 ```octave
-run('SELF_CHECK.m');
 run('START_PROJECT.m');
 ```
 
