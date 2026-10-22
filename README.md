@@ -15,7 +15,7 @@ A numerical and educational study of **Differential Phase Shift Quantum Key Dist
 | Submission date | **9 October 2026** |
 | Implementation | **Python / Jupyter Notebook** and **GNU Octave** |
 | Document status | **Institution Review** |
-| Project Report | [Full Project Report](https://github.com/limnesh/QuantumKeyDistribution-DPS/blob/main/DPS_QKD_FSO_Project_Report_v1.0.html) |
+| Project Report | [Full Project Report]([https://limnesh.github.io/QuantumKeyDistribution-DPS/DPS_QKD_FSO_Project_Report_v1.0.html]) |
 | Source repository | [QuantumKeyDistribution-DPS](https://github.com/limnesh/QuantumKeyDistribution-DPS) |
 
 ## Scope and main topics
