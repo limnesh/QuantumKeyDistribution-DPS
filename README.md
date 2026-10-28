@@ -89,15 +89,6 @@ run('START_PROJECT.m');
 
 Use the dashboards to explore terrestrial and satellite cases and the **ML-versus-physics comparison**. Python and Octave may produce different randomly selected optimum designs because their random samples and numerical runtimes differ; use identical input matrices for a direct model-to-model comparison. A full Octave GUI runtime verification remains environment-dependent.
 
-### Publishing the HTML through GitHub Pages
-
-1. Upload `DPS_QKD_FSO_Project_Report_v1.0.html` to the repository root.
-2. Upload the **entire** `report-assets/` folder alongside it, keeping image filenames and capitalization unchanged.
-3. In **Settings → Pages**, select **Deploy from a branch**, branch **`main`**, folder **`/(root)`**, then save.
-4. Open the report link in **Read the project report** above after the Pages deployment completes.
-
-The report's equations, figures and table-of-contents navigation work in the HTML document without depending on an external image host.
-
 ## Scientific limitations
 
 - This is an **educational numerical simulation**, not an experimentally validated or certified deployed QKD system.
